@@ -36,6 +36,8 @@ function calculate() {
 function add() {
     var semester = document.getElementById("input_semester");
     var grade_selector = document.getElementById("input_grade");
+    var course = document.getElementById("input_course").value;
+    var credits = document.getElementById("input_credits").value;
     var grade = grade_selector.options[grade_selector.selectedIndex].innerHTML;
     var sem = semester.options[semester.selectedIndex].value;
 
