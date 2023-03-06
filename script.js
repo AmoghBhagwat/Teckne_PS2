@@ -101,6 +101,10 @@ function add() {
         credits_2.push(parseInt(credits));
         grades_2.push(temp);
     }
+
+    document.getElementById("input_course").value = "";
+    document.getElementById("input_credits").value = "";
+    document.getElementById("input_grade").selectedIndex = 0;
 }
 
 function insertRow(table, course, credits, grade) {
