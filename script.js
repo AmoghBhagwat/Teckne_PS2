@@ -132,6 +132,7 @@ function calculate() {
         var cred = row.children[1].innerHTML;
         if (grade < 0) {
             ok=0;
+            alert("Please select all grades!");
             break;
         }
         sem1 += parseInt(cred)*parseInt(grade);
@@ -149,6 +150,7 @@ function calculate() {
         var cred = row.children[1].innerHTML;
         if (grade < 0) {
             ok = 0;
+            alert("Please select all grades!");
             break;
         }
         sem2 += parseInt(cred)*parseInt(grade);
