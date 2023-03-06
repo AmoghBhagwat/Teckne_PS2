@@ -115,9 +115,6 @@ function updateSemester() {
 }
 
 function calculate() {
-    var table1 = document.getElementById("table_courses_1");
-    var table2 = document.getElementById("table_courses_2");
-
     var sem1 = 0;
     var cred1 = 0;
     var sem2 = 0;
@@ -125,42 +122,36 @@ function calculate() {
     var tbody1 = document.getElementById("tbody_1");
     var tbody2 = document.getElementById("tbody_2");
     
-    var ok = 1;
     for (let row of tbody1.children) {
         var grade_selector = row.children[2].children[0];
         var grade = getGrade(grade_selector.options[grade_selector.selectedIndex].innerHTML);
         var cred = row.children[1].innerHTML;
         if (grade < 0) {
-            ok=0;
-            alert("Please select all grades!");
-            break;
+            alert("Please select all grades in 1st semester!");
+            return;
         }
         sem1 += parseInt(cred)*parseInt(grade);
         cred1 += parseInt(cred);
     }
-    if (ok === 1) {
-        sem1 /= cred1;
-        document.getElementById("sem1_spi").innerHTML = "SPI for 1st Semester = " + sem1;
-    }
 
-    ok = 1;
+    sem1 /= cred1;
+    document.getElementById("sem1_spi").innerHTML = "SPI for 1st Semester = " + sem1;
+
     for (let row of tbody2.children) {
         var grade_selector = row.children[2].children[0];
         var grade = getGrade(grade_selector.options[grade_selector.selectedIndex].innerHTML);
         var cred = row.children[1].innerHTML;
         if (grade < 0) {
-            ok = 0;
-            alert("Please select all grades!");
-            break;
+            alert("Please select all grades in 2nd semester!");
+            return;
         }
         sem2 += parseInt(cred)*parseInt(grade);
         cred2 += parseInt(cred);
     }
-    if (ok === 1) {
-        sem2 /= cred2;
-        document.getElementById("sem2_spi").innerHTML = "SPI for 2nd Semester = " + sem2;
-        document.getElementById("cpi").innerHTML = "CPI = " + (sem2*cred2 + sem1*cred1) / (cred1+cred2);
-    }
+
+    sem2 /= cred2;
+    document.getElementById("sem2_spi").innerHTML = "SPI for 2nd Semester = " + sem2;
+    document.getElementById("cpi").innerHTML = "CPI = " + (sem2*cred2 + sem1*cred1) / (cred1+cred2);
 }
 
 function getGrade(grade) {
