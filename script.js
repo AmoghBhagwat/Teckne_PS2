@@ -8,7 +8,7 @@ var grades_1 = [];
 var credits_2 = [];
 var grades_2 = [];
 
-var grades = ["A*", "A", "B+", "B", "C+", "C", "D+", "D", "E", "F", "I"];
+var grades = ["Select", "A*", "A", "B+", "B", "C+", "C", "D+", "D", "E", "F", "I"];
 
 function generateCourses() {
     var branch = document.getElementById("input_branch").selectedIndex;
@@ -131,28 +131,40 @@ function calculate() {
     var tbody1 = document.getElementById("tbody_1");
     var tbody2 = document.getElementById("tbody_2");
     
+    var ok = 1;
     for (let row of tbody1.children) {
         var grade_selector = row.children[2].children[0];
         var grade = getGrade(grade_selector.options[grade_selector.selectedIndex].innerHTML);
         var cred = row.children[1].innerHTML;
+        if (grade < 0) {
+            ok=0;
+            break;
+        }
         sem1 += parseInt(cred)*parseInt(grade);
         cred1 += parseInt(cred);
     }
-    sem1 /= cred1;
-    document.getElementById("sem1_spi").innerHTML = "SPI for 1st Semester = " + sem1;
+    if (ok === 1) {
+        sem1 /= cred1;
+        document.getElementById("sem1_spi").innerHTML = "SPI for 1st Semester = " + sem1;
+    }
 
+    ok = 1;
     for (let row of tbody2.children) {
         var grade_selector = row.children[2].children[0];
         var grade = getGrade(grade_selector.options[grade_selector.selectedIndex].innerHTML);
         var cred = row.children[1].innerHTML;
+        if (grade < 0) {
+            ok = 0;
+            break;
+        }
         sem2 += parseInt(cred)*parseInt(grade);
         cred2 += parseInt(cred);
     }
-    sem2 /= cred2;
-
-    document.getElementById("sem2_spi").innerHTML = "SPI for 2nd Semester = " + sem2;
-
-    document.getElementById("cpi").innerHTML = "CPI = " + (sem2*cred2 + sem1*cred1) / (cred1+cred2);
+    if (ok === 1) {
+        sem2 /= cred2;
+        document.getElementById("sem2_spi").innerHTML = "SPI for 2nd Semester = " + sem2;
+        document.getElementById("cpi").innerHTML = "CPI = " + (sem2*cred2 + sem1*cred1) / (cred1+cred2);
+    }
 }
 
 function getGrade(grade) {
@@ -185,70 +197,13 @@ function getGrade(grade) {
         case "I":
             temp = 0;
             break;
+        case "Select":
+            temp = -1;
+            break;
     }
 
     return temp;
 }
-
-// function add() {
-//     var semester = document.getElementById("input_semester");
-//     var grade_selector = document.getElementById("input_grade");
-//     var course = document.getElementById("input_course").value;
-//     var credits = document.getElementById("input_credits").value;
-//     var grade = grade_selector.options[grade_selector.selectedIndex].innerHTML;
-//     var sem = semester.options[semester.selectedIndex].value;
-
-//     if (course === "" || credits === "") {
-//         window.alert("Please fill all the fields!");
-//         return;
-//     }
-
-    // var temp = 0;
-    // switch (grade) {
-    //     case "A*":
-    //     case "A":
-    //         temp=10;
-    //         break;
-    //     case "B+":
-    //         temp=9;
-    //         break;
-    //     case "B":
-    //         temp=8;
-    //         break;
-    //     case "C+":
-    //         temp=7;
-    //         break;
-    //     case "C":
-    //         temp=6;
-    //         break;
-    //     case "D+":
-    //         temp=5;
-    //         break;
-    //     case "D":
-    //         temp=4;
-    //         break;
-    //     case "E":
-    //     case "F":
-    //     case "I":
-    //         temp = 0;
-    //         break;
-    // }
-
-//     if (sem==="sem1") {
-//         insertRow(document.getElementById("table_courses_1"), course, credits, grade);
-//         credits_1.push(parseInt(credits));
-//         grades_1.push(temp);
-//     }
-//     if (sem==='sem2') {
-//         insertRow(document.getElementById("table_courses_2"), course, credits, grade);
-//         credits_2.push(parseInt(credits));
-//         grades_2.push(temp);
-//     }
-
-//     document.getElementById("input_course").value = "";
-//     document.getElementById("input_credits").value = "";
-//     document.getElementById("input_grade").selectedIndex = 0;
-// }
 
 function insertRow(table, course, credits) {
     var row = document.createElement("tr");
