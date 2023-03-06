@@ -1,12 +1,33 @@
 h1{
     color:darkorange;
     text-align: center;
+    font-size: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body{
-    background-color: rgb(255, 255, 255);
+    background-color:cornsilk;
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/IIT_Kanpur_Logo.svg/1200px-IIT_Kanpur_Logo.svg.png");   
+    background-position-x: 500px;
+    background-position-y: 100px;
+    background-repeat:no-repeat;
+    background-size:500px;
 }
 table, td, th{
-    border: 5px;
+    border: 1px solid ;
     border-color: black;
-    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+table{
+    color:rgb(99, 29, 6);
+    background-color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+td, th{
+    color:chocolate;
+    background-color: rgb(246, 213, 213);
 }
