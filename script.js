@@ -1,3 +1,4 @@
+
 document.getElementById("button_add_course").onclick = add;
 document.getElementById("button_calculate").onclick = calculate;
 
