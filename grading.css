@@ -3,9 +3,10 @@ h1{
     text-align: center;
 }
 body{
-    background-color: cornsilk;
+    background-color: rgb(255, 255, 255);
 }
-/* table, td, th{
-    border: 1px;
+table, td, th{
+    border: 5px;
+    border-color: black;
     padding: 10px;
-} */
+}
