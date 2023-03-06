@@ -41,6 +41,11 @@ function add() {
     var grade = grade_selector.options[grade_selector.selectedIndex].innerHTML;
     var sem = semester.options[semester.selectedIndex].value;
 
+    if (course === "" || credits === "") {
+        window.alert("Please fill all the fields!");
+        return;
+    }
+
     var temp = 0;
     switch (grade) {
         case "A*":
