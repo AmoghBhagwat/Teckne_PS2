@@ -1,11 +1,25 @@
-
 document.getElementById("button_add_course").onclick = add;
 document.getElementById("button_calculate").onclick = calculate;
+document.getElementById("input_semester").onchange = updateSemester;
 
 var credits_1 = [];
 var grades_1 = [];
 var credits_2 = [];
 var grades_2 = [];
+
+function updateSemester() {
+    console.log("onchange called");
+    var semester = document.getElementById("input_semester");
+    var sem = semester.options[semester.selectedIndex].value;
+    if (sem === "sem1") {
+        document.getElementById("table_courses_1").style.display = "block";
+        document.getElementById("table_courses_2").style.display = "none";
+    }
+    if (sem === "sem2") {
+        document.getElementById("table_courses_2").style.display = "block";
+        document.getElementById("table_courses_1").style.display = "none";
+    }
+}
 
 function calculate() {
     var spi = 0;
