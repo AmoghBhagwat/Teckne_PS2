@@ -1,12 +1,48 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="grading.css">
-    <Script href="GradingScript.js"></Script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Testing</h1>
-    <p id="l1">This is a test paragraph.</p>
-    <button type="button" onclick="showcpi()">Calculate CPI</button>
-    <p>checking if synced</p>
+    <select name="Select Semester" id="input_semester">
+      <option value="sem1">1st Semester</option>
+      <option value="sem2">2nd Semester</option>
+    </select>
+    <input type="text" name="Enter Course" id="input_course"/>
+    <input type="number" name="Enter Credits" id="input_credits"/>
+    <select name="Enter Grade" id="input_grade">
+      <option value="a_star">A*</option>
+      <option value="a">A</option>
+      <option value="b_plus">B+</option>
+      <option value="b">B</option>
+      <option value="c_pls">C+</option>
+      <option value="c">C</option>
+      <option value="d_plus">D+</option>
+      <option value="d">D</option>
+      <option value="e">E</option>
+      <option value="f">F</option>
+      <option value="i">I</option>
+    </select>
+    <button id="button_add_course" onclick="add">Add course</button>
+    <table id="table_courses_1">
+      <tr>
+        <th>Course</th>
+        <th>Credits</th>
+        <th>Grade</th>
+      </tr>
+    </table>
+    <table id="table_courses_2">
+      <tr>
+        <th>Course</th>
+        <th>Credits</th>
+        <th>Grade</th>
+      </tr>
+    </table>
+
+    <button id="button_calculate">Calculate</button>
+    <p id="sem1_spi"></p>
+    <p id="sem2_spi"></p>
+    <p id="cpi"></p>
   </body>
 </html>
