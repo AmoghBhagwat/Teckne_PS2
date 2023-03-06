@@ -1,56 +1,81 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <link rel="stylesheet" href="grading.css">
-  <script src="script.js" defer></script>
-</head>
-
-<body>
-  <div class="wrap">
-    <div class="content">
-      <h1 align="center">SPI and CPI Calculator</h1>
-      <select name="Select Semester" id="input_semester">
-        <option value="sem1">1st Semester</option>
-        <option value="sem2">2nd Semester</option>
-      </select><br />
-      <input type="text" name="Enter Course" id="input_course" placeholder="Enter name of the course" />
-      <input type="number" name="Enter Credits" id="input_credits" placeholder="Enter number of credits" /><br />
-      <select name="Enter Grade" id="input_grade">
-        <option value="a_star">A*</option>
-        <option value="a">A</option>
-        <option value="b_plus">B+</option>
-        <option value="b">B</option>
-        <option value="c_pls">C+</option>
-        <option value="c">C</option>
-        <option value="d_plus">D+</option>
-        <option value="d">D</option>
-        <option value="e">E</option>
-        <option value="f">F</option>
-        <option value="i">I</option>
+  <head>
+    <link rel="stylesheet" href="grading.css">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1 align="center">SPI and CPI Calculator</h1>
+    <select name="Select Branch" id="input_branch">
+      <option value="ae">Aerospace Engineering</option>
+      <option value="bsbe">Biological Sciences and Bioengineering</option>
+      <option value="ce">Civil Engineering</option>
+      <option value="chm">Chemical Engineering</option>
+      <option value="che">BS Chemistry</option>
+      <option value="cse">Computer Science and Engineering</option>
+      <option value="eco">BS Economics</option>
+      <option value="ee">Electrical Engineering</option>
+      <option value="es">Earth Sciences</option>
+      <option value="me">Mechanical Engineering</option>
+      <option value="mse">Material Science and Engineering</option>
+      <option value="mth">Mathematics and Scientific Computing</option>
+      <option value="phy">BS Physics</option>
+      <option value="sds">Statistics and Data Science</option>
+    </select>
+    <p id="choosecourse">ELC offered in which semester: 
+      <select name="Select Semester" id="elc_semester">
+      <option value="sem1">1st Semester</option>
+      <option value="sem2">2nd Semester</option>
       </select>
-      <button id="button_add_course" onclick="add">Add course</button>
-      <table id="table_courses_1">
-        <tr>
-          <th>Course</th>
-          <th>Credits</th>
-          <th>Grade</th>
-        </tr>
-      </table>
-      <table id="table_courses_2" style="display:none;">
-        <tr>
-          <th>Course</th>
-          <th>Credits</th>
-          <th>Grade</th>
-        </tr>
-      </table>
+    </p>
+    <button id="button_update_courses">Go!</button><br/>
 
-      <button id="button_calculate">Calculate</button>
-      <p id="sem1_spi"></p>
-      <p id="sem2_spi"></p>
-      <p id="cpi"></p>
-    </div>
-  </div>
-</body>
+    <select name="Select Semester" id="input_semester">
+      <option value="sem1">1st Semester</option>
+      <option value="sem2">2nd Semester</option>
+    </select>
+    <!-- <input type="text" name="Enter Course" id="input_course" placeholder="Enter name of the course"/>
+    <input type="number" name="Enter Credits" id="input_credits" placeholder="Enter number of credits"/><br/>
+    <select name="Enter Grade" id="input_grade">
+      <option value="a_star">A*</option>
+      <option value="a">A</option>
+      <option value="b_plus">B+</option>
+      <option value="b">B</option>
+      <option value="c_pls">C+</option>
+      <option value="c">C</option>
+      <option value="d_plus">D+</option>
+      <option value="d">D</option>
+      <option value="e">E</option>
+      <option value="f">F</option>
+      <option value="i">I</option>
+    </select>
+    <button id="button_add_course" onclick="add">Add course</button> -->
+    <table id="table_courses_1">
+      <thead>
+        <th>Course</th>
+        <th>Credits</th>
+        <th>Grade</th>
+      </thead>
+      <tbody id="tbody_1">
+        
+      </tbody>
+    </table>
+    <table id="table_courses_2" style="display:none;">
+      <thead>
+        <th>Course</th>
+        <th>Credits</th>
+        <th>Grade</th>
+      </thead>
+      <tbody id="tbody_2">
 
+      </tbody>
+
+    </table>
+
+    <button id="button_calculate">Calculate</button>
+    <p id="sem1_spi"></p>
+    <p id="sem2_spi"></p>
+    <p id="cpi"></p>
+  </body>
 </html>
