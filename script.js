@@ -136,6 +136,7 @@ function calculate() {
 
     sem1 /= cred1;
     document.getElementById("sem1_spi").innerHTML = "SPI for 1st Semester = " + sem1;
+    document.getElementById("cpi").innerHTML = "CPI = " + sem1;
 
     for (let row of tbody2.children) {
         var grade_selector = row.children[2].children[0];
