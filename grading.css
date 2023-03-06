@@ -1,33 +1,129 @@
-h1{
-    color:darkorange;
+h1 {
+    color: rgb(204, 255, 0);
     text-align: center;
     font-size: 32px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
+        5px 5px 1px orange,
+        6px 6px 2px rgba(0, 0, 0, 0.7),
+        10px 10px 1px rgb(238, 89, 89),
+        11px 11px 2px rgba(0, 0, 0, 0.7),
+        15px 15px 1px rgb(233, 155, 233),
+        16px 16px 2px rgba(0, 0, 0, 0.7);
+    -webkit-animation: text-snake 1s infinite alternate;
+    -moz-animation: text-snake 1s infinite alternate;
+    -ms-animation: text-snake 1s infinite alternate;
+    animation: text-snake 1s infinite alternate;
 }
-body{
-    background-color:cornsilk;
-    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/IIT_Kanpur_Logo.svg/1200px-IIT_Kanpur_Logo.svg.png");   
-    background-position-x: 500px;
-    background-position-y: 100px;
-    background-repeat:no-repeat;
-    background-size:500px;
+
+/* other prefixed animation blocks ommitted for brevity */
+
+@keyframes text-snake {
+    from {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
+            5px 5px 1px orange,
+            6px 6px 2px rgba(0, 0, 0, 0.7),
+            10px 10px 1px rgb(238, 89, 89),
+            11px 11px 2px rgba(0, 0, 0, 0.7),
+            15px 15px 1px rgb(233, 155, 233),
+            16px 16px 2px rgba(0, 0, 0, 0.7);
+    }
+
+    to {
+        text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.7),
+            -5px 5px 1px orange,
+            -6px 6px 2px rgba(0, 0, 0, 0.7),
+            -10px 10px 1px rgb(238, 89, 89),
+            -11px 11px 2px rgba(0, 0, 0, 0.7),
+            -15px 15px 1px rgb(233, 155, 233),
+            -16px 16px 2px rgba(0, 0, 0, 0.7);
+    }
 }
-table, td, th{
-    border: 1px solid ;
+
+body {
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/IIT_Kanpur_Logo.svg/1200px-IIT_Kanpur_Logo.svg.png"), url("https://pkklib.iitk.ac.in/images/2022/06/29/gal4.png");
+    background-position: 500px 150px, 0px 0px;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 500px 500px, 1600px 1000px;
+    text-align: center;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
     border-color: black;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
-table{
-    color:rgb(99, 29, 6);
-    background-color: aquamarine;
+
+table,
+#table_courses1,
+#table_courses2 {
+    color: rgb(99, 29, 6);
+    width: 40%;
+    background-image: linear-gradient(45deg, rgb(2, 2, 103), rgb(0, 238, 255), white);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
+    align-self: center;
+    border-radius: 25px;
 }
-td, th{
-    color:chocolate;
-    background-color: rgb(246, 213, 213);
+
+td,
+th {
+    color: chocolate;
+    background-image: linear-gradient(45deg, rgb(204, 239, 67), white);
+    border-radius: 10px;
+}
+
+#choosecourse,
+#sem1_spi,
+#sem2_spi,
+#cpi {
+    color: azure;
+    width: 320px;
+    padding: 10px;
+    border: 5px solid rgb(159, 76, 76);
+    margin: 1px;
+    background-image: linear-gradient(rgb(43, 179, 152), rgb(9, 255, 9));
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+}
+
+#button_update_courses,
+#button_calculate {
+    width: 140px;
+    height: 30px;
+    background-image: linear-gradient(300deg, rgb(221, 163, 163), white);
+    margin: 5px;
+    font-size: 15px;
+    border-radius: 15px;
+    transition: width 1s, height 1s, margin 1s, font-size 1s, background-image 2s;
+}
+
+#button_update_courses:hover,
+#button_calculate:hover {
+    width: 200px;
+    height: 40px;
+    margin: 0px;
+    font-size: 20px;
+    background-image: linear-gradient(175deg, rgb(156, 235, 162), white);
+}
+
+#input_semester,
+#elc_semester,
+#input_branch {
+    background-image: linear-gradient(175deg, rgb(246, 176, 0), white);
+    margin: 5px;
+    font-size: 17px;
+    width: 200px;
+    height: 25px;
 }

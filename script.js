@@ -1,12 +1,6 @@
-// document.getElementById("button_add_course").onclick = add;
 document.getElementById("button_calculate").onclick = calculate;
 document.getElementById("input_semester").onchange = updateSemester;
 document.getElementById("button_update_courses").onclick = generateCourses;
-
-var credits_1 = [];
-var grades_1 = [];
-var credits_2 = [];
-var grades_2 = [];
 
 var grades = ["Select", "A*", "A", "B+", "B", "C+", "C", "D+", "D", "E", "F", "I"];
 
