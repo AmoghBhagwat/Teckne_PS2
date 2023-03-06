@@ -82,13 +82,13 @@ function generateCourses() {
         insertRow(table1, "ESC112", 7);
         insertRow(table1, "LIF111", 6);
         insertRow(table1, "CHM111", 3);
-        insertRow(table2, "ELC111", 9);
+        insertRow(table2, "ELC11X", 9);
         insertRow(table2, "CHM112", 4);
         insertRow(table2, "CHM113", 4);
         insertRow(table2, "TA111", 9);
         insertRow(table2, "PHY111", 3);
     } else {
-        insertRow(table1, "ELC111", 9);
+        insertRow(table1, "ELC11X", 9);
         insertRow(table1, "CHM112", 4);
         insertRow(table1, "CHM113", 4);
         insertRow(table1, "TA111", 9);
